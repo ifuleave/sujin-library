@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.group.libraryapp.repository.mapper.UserMapper">
+	<insert id="userSave"  useGeneratedKeys="true">
+		INSERT INTO MEMBER (MEMBER_NAME,MEMBER_AGE) VALUES(#{name},#{age})
+	</insert>
+	
+	<select id="userList">
+		select * from member
+	</select>
+</mapper>
