@@ -5,10 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserSaveRequest {
+public class UserNameUpdateRequest {
 
+	private Long id;
 	private String name;
-	private Long age;
-	
-	
+		
 }

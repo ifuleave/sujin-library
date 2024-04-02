@@ -8,4 +8,25 @@
 	<select id="userList">
 		select * from member
 	</select>
-</mapper>
+	<update id="userNameUpdate">
+		update member set MEMBER_NAME = #{name} where member_Id = #{id}
+	</update>
+	<delete id="deleteName">
+		delete from member where member_name =#{name}
+	</delete>
+	<insert id="bookSave">
+		insert into library (library_bookname) VALUES(#{name})
+	</insert>
+	<select id="getmemberId">
+		select * from member where member_name =#{userName}
+	</select>
+
+	<select id="getBookHistory">
+		select * from history where library_bookname = #{bookName} and returnyn = false
+	</select>
+	
+	<insert id="bookLoan" useGeneratedKeys="true">
+		insert into history (member_id ,library_bookname,returnyn) values (#{memberId},#{bookName},false)	
+	</insert>
+	
+	</mapper>

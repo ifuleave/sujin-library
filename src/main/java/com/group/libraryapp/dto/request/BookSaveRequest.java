@@ -5,10 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserSaveRequest {
-
+public class BookSaveRequest {
+	
 	private String name;
-	private Long age;
-	
-	
 }
