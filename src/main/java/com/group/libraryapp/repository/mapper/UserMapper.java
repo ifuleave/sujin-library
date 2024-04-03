@@ -9,6 +9,7 @@ import com.group.libraryapp.domain.History;
 import com.group.libraryapp.domain.Library;
 import com.group.libraryapp.domain.User;
 import com.group.libraryapp.dto.request.BookLoanRequest;
+import com.group.libraryapp.dto.request.BookReturnRequest;
 import com.group.libraryapp.dto.request.BookSaveRequest;
 import com.group.libraryapp.dto.request.UserNameUpdateRequest;
 import com.group.libraryapp.dto.request.UserSaveRequest;
@@ -31,5 +32,9 @@ public interface UserMapper {
 	History getBookHistory(String bookName);
 
 	void bookLoan(@Param("memberId") Long memberId, @Param("bookName") String bookName);
+
+	Library findBook(String bookName);
+
+	void bookReturn(@Param("memberId")Long memberId,@Param("bookName") String bookName);
 
 }

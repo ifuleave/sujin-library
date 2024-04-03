@@ -8,6 +8,7 @@ import com.group.libraryapp.domain.History;
 import com.group.libraryapp.domain.Library;
 import com.group.libraryapp.domain.User;
 import com.group.libraryapp.dto.request.BookLoanRequest;
+import com.group.libraryapp.dto.request.BookReturnRequest;
 import com.group.libraryapp.dto.request.BookSaveRequest;
 import com.group.libraryapp.dto.request.UserNameUpdateRequest;
 import com.group.libraryapp.dto.request.UserSaveRequest;
@@ -60,6 +61,16 @@ public class UserRepository {
 	public void bookLoan(Long memberId, String bookName) {
 		// TODO Auto-generated method stub
 		userMapper.bookLoan(memberId, bookName);
+	}
+
+	public Library findBook(String bookName) {
+		// TODO Auto-generated method stub
+		return userMapper.findBook(bookName);
+	}
+
+	public void bookReturn(Long memberId, String bookName) {
+		// TODO Auto-generated method stub
+		userMapper.bookReturn(memberId,bookName);
 	}
 
 }

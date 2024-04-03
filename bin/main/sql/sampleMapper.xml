@@ -28,5 +28,11 @@
 	<insert id="bookLoan" useGeneratedKeys="true">
 		insert into history (member_id ,library_bookname,returnyn) values (#{memberId},#{bookName},false)	
 	</insert>
+	<select id="findBook">
+		select * from library where library_bookname = #{bookName}
+	</select>
+	<update id="bookReturn">
+		update history set RETURNYN = 1 where history.LIBRARY_BOOKNAME = #{bookName} and MEMBER_ID = #{memberId}
+	</update>
 	
 	</mapper>

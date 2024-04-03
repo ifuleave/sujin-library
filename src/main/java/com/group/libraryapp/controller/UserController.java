@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.group.libraryapp.domain.User;
 import com.group.libraryapp.dto.request.BookLoanRequest;
+import com.group.libraryapp.dto.request.BookReturnRequest;
 import com.group.libraryapp.dto.request.BookSaveRequest;
 import com.group.libraryapp.dto.request.UserNameUpdateRequest;
 import com.group.libraryapp.dto.request.UserSaveRequest;
@@ -55,6 +56,11 @@ public class UserController {
 	@PostMapping("/book/loan")
 	public void bookLoan(@RequestBody BookLoanRequest request) {
 		userServie.bookLoan(request);
+	}
+	
+	@PutMapping("/book/return")
+	public void bookReturn(@RequestBody BookReturnRequest request) {
+		userServie.bookRrturn(request);
 	}
 
 }

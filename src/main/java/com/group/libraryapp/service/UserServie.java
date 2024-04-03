@@ -11,6 +11,7 @@ import com.group.libraryapp.domain.History;
 import com.group.libraryapp.domain.Library;
 import com.group.libraryapp.domain.User;
 import com.group.libraryapp.dto.request.BookLoanRequest;
+import com.group.libraryapp.dto.request.BookReturnRequest;
 import com.group.libraryapp.dto.request.BookSaveRequest;
 import com.group.libraryapp.dto.request.UserNameUpdateRequest;
 import com.group.libraryapp.dto.request.UserSaveRequest;
@@ -76,7 +77,8 @@ public class UserServie {
 		User user = userRepository.getmemberId(request.getUserName());
 
 		// 책 찾는거.. (추가)
-
+		Library library = userRepository.findBook(request.getBookName());
+		
 		History history = userRepository.getBookHistory(request.getBookName());
 
 		if (history != null) {
@@ -85,5 +87,15 @@ public class UserServie {
 
 		userRepository.bookLoan(user.getMemberId(), request.getBookName());
 	}
+
+	@Transactional
+	public void bookRrturn(BookReturnRequest request) {
+		// TODO Auto-generated method stub
+		User user = userRepository.getmemberId(request.getUserName());
+		
+		userRepository.bookReturn(user.getMemberId(),request.getBookName());			
+	}
+	
+	
 
 }
